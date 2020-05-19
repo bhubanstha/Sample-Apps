@@ -1,0 +1,35 @@
+﻿@using ViewModel;
+@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="row">
+    <form action="/home/login" method="post" id="frmLogin">
+        <div class="form-group">
+            <label for="Email">Email address:</label>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" , placeholder="Enter Email Address", @required="true"})
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+
+        <div class="form-group">
+            <label for="Password">Password:</label>
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder="Enter password", @required="true" })
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <div class="form-group">
+            <label>
+                @Html.CheckBoxFor(m => m.RememberMe) Remember Me
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Login" class="btn btn-primary" id="btnLogin" />
+        </div>
+    </form>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/Site.js?v=1"></script>
+}

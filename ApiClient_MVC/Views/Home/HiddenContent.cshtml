@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "HiddenContent";
+}
+
+<div class="row">
+
+    <h1>You have logged in successfully.</h1>
+
+    <p>Here is the list of user registered in this app.</p>
+    <div>
+        <input type="button" class="btn btn-danger pull-right" style="margin-top:-40px;" value="Sign Out" id="btnSignOut" />
+    </div>
+</div>
+<div class="row">
+    <ol id="olUser">
+    </ol>
+</div>
+<div class="row hidden" id="noAccess">
+    <h2>You need to authorize before you can access this content.</h2>
+</div>
+
+@section scripts{
+
+    <script src="~/Scripts/Site.js?v=1"></script>
+    <script>
+        $("document").ready(function () {
+            GetHiddenContent();
+        });
+    </script>
+}
+
